@@ -7,7 +7,7 @@ function sendValueInFabQueue1(num) {
     rq.connect('amqp://localhost', (err, connection) => {
         if (err) process.exit()
 
-        const queueName = 'Fib1'
+        const queueName = 'Fib2'
 
         connection.createChannel((err, channel) => {
             if (err) {

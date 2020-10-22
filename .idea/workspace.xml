@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb0df096-2f2d-4d0b-902b-6b4fc7810a3e" name="Default Changelist" comment="" />
+    <list default="true" id="cb0df096-2f2d-4d0b-902b-6b4fc7810a3e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queue1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/queue1/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiPersistence">
     <option name="context" value="docker-desktop" />
@@ -43,7 +49,8 @@
       <workItem from="1603484646201" duration="6722000" />
       <workItem from="1603524865242" duration="2284000" />
       <workItem from="1603527673820" duration="7491000" />
-      <workItem from="1603551496326" duration="3337000" />
+      <workItem from="1603551496326" duration="3646000" />
+      <workItem from="1603558189048" duration="81000" />
     </task>
     <servers />
   </component>

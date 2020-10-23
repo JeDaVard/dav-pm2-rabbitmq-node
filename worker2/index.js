@@ -1,7 +1,15 @@
-const fib = require('../fib')
+const rq = require('amqplib/callback_api')
 
-process.on('message', number => {
-    let { result } = fib.compute(number)
-    console.log(`Worker 2 - pid: ${process.pid}`)
-    process.send(result)
+rq.connect('amqp://localhost', (err, connection) => {
+    if (err) process.exit()
+    else {
+        const queueName = 'Fib1 consumer 2'
+        connection.createChannel((err, channel) => {
+            channel.assertQueue(queueName, {durable: false})
+            channel.consume(queueName, message => {
+                console.log(`Waiting for messages...`)
+                console.log(`${queueName} - ${message.content.toString()}`)
+            }, { noAck: true })
+        })
+    }
 })

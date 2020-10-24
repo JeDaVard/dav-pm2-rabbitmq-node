@@ -4,6 +4,7 @@ const os = require('os')
 const fs = require('fs')
 const crypto = require('crypto')
 const { promisify } = require('util')
+const redis = require('redis')
 
 const pbkdf2 = promisify(crypto.pbkdf2)
 // const fib = require('./fib')
@@ -11,8 +12,16 @@ const pbkdf2 = promisify(crypto.pbkdf2)
 const fabQueue1 = require('./queue1/index')
 const fabQueue2 = require('./queue2/index')
 
-
 const app = express()
+
+const client = redis.createClient({
+    host: '127.0.0.1',
+    port: 6379
+})
+
+app.get('/jph', (req,res) => {
+    res.status(200).json({success: true})
+})
 
 app.get('/fib', (req,res) => {
     // console.log(`REQUEST: Cluster worker ${cluster.worker.id}, pid ${cluster.worker.process.pid}`)
@@ -26,9 +35,11 @@ app.get('/fib', (req,res) => {
     const n = req.query.n
     console.log(n)
     if (n % 2 === 0) {
-        fabQueue1(n)
+        // fabQueue1(n)
+        client.publish('sub1', n)
     } else {
-        fabQueue2(n)
+        // fabQueue2(n)
+        client.publish('sub2', n)
     }
 
     res.status(200).send('ok')

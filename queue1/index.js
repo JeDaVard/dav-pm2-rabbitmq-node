@@ -15,9 +15,8 @@ function sendValueInFabQueue1(num) {
                 process.exit()
             } else {
                 let { result } = fib.compute(num)
-
                 channel.assertQueue(queueName, { durable: false })
-                channel.sendToQueue(queueName, Buffer.form(result.toString()))
+                channel.sendToQueue(queueName, Buffer.from(result.toString()))
                 console.log(`Queue Name is - ${queueName}`)
             }
         })

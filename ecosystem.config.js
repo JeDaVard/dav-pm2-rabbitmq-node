@@ -6,7 +6,15 @@ module.exports = {
     exec_mode: 'cluster',
     autorestart: true,
     watch: true,
-  }],
+  },{
+    name: 'Worker1',
+    script: 'worker1/index.js',
+    instances: 1
+  }, {
+    name: 'Worker2',
+    script: 'worker2/index.js',
+    instances: 1
+    }],
   // deploy : {
   //   production : {
   //     user : 'SSH_USERNAME',
